@@ -75,6 +75,19 @@ const TEMPLATES = {
 `,
 };
 
+const COMMANDS = {
+  node: {
+    "install.md": "# Install deps\n\nRun `npm install` in the repo root. Never modify package-lock manually.",
+    "test.md": "# Run tests\n\nRun `npm test`. Tests are expected to pass before any merge.",
+    "build.md": "# Build\n\nRun `npm run build`. Output goes to dist/.",
+  },
+  web: {
+    "dev.md": "# Dev server\n\nRun `npm run dev` and open the printed local URL.",
+    "build.md": "# Build\n\nRun `npm run build` for production output; preview before merge.",
+    "test.md": "# Test\n\nRun `npm test`. Keep the suite green.",
+  },
+};
+
 function log(...a) { console.log(...a); }
 
 function storePath(name) { return join(STORE, name); }
@@ -155,6 +168,14 @@ async function main() {
       const content = tmplArg ? TEMPLATES[name] : TEMPLATE;
       if (existsSync(out)) log("exists:", out);
       else { writeFileSync(out, content); log("wrote", out); }
+      if (tmplArg) {
+        const cdir = join(dir, "commands");
+        mkdirSync(cdir, { recursive: true });
+        for (const [fname, fbody] of Object.entries(COMMANDS[name])) {
+          const fp = join(cdir, fname);
+          if (!existsSync(fp)) { writeFileSync(fp, fbody); log("wrote", fp); }
+        }
+      }
       break;
     }
 

@@ -49,6 +49,7 @@ test("init accepts a known template, rejects unknown", () => {
   const nodedir = mkdtempSync(join(tmpdir(), "node-"));
   run(["init", "--template=node", nodedir], env);
   assert.match(readFileSync(join(nodedir, "CLAUDE.md"), "utf8"), /Node\.js service/);
+  assert.ok(existsSync(join(nodedir, "commands", "test.md")), "node template scaffolds commands/");
   const webdir = mkdtempSync(join(tmpdir(), "web-"));
   run(["init", "--template=web", webdir], env);
   assert.match(readFileSync(join(webdir, "CLAUDE.md"), "utf8"), /Web project/);

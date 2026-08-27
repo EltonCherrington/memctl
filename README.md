@@ -57,8 +57,9 @@ memctl pack my-cool-app   # -> my-cool-app.memctl.pack
 `~/.memctl/<pack-name>/`.
 
 Built-in starter pack included; `memctl init` writes the scaffold above with
-your project name pre-filled, and `--template=node` / `--template=web` write
-purpose-built packs.
+your project name pre-filled. `--template=node` / `--template=web` write
+purpose-built packs and scaffold a `commands/` folder (Claude Code-powered
+install/test/build helpers for the stack).
 
 ## Support the project
 
