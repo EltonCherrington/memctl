@@ -16,11 +16,17 @@ it, share it.
 
 ## Install
 
+Not yet on npm (publish pending). Install from source until then:
+
 ```sh
-npm install -g memctl
-# or run without installing:
-npx memctl --help
+git clone https://github.com/EltonCherrington/memctl
+cd memctl
+npm link          # puts `memctl` on your PATH
+memctl --help
 ```
+
+Works with Claude Code, Cursor, Copilot, and any tool that reads
+`CLAUDE.md` / `AGENTS.md`.
 
 ## Quick start
 
@@ -37,6 +43,9 @@ memctl use my-cool-app
 # see everything you've saved
 memctl ls
 
+# scaffold with a purpose-built template
+memctl init --template=node   # options: node | web
+
 # export a pack to share with a teammate
 memctl pack my-cool-app   # -> my-cool-app.memctl.pack
 ```
@@ -48,7 +57,8 @@ memctl pack my-cool-app   # -> my-cool-app.memctl.pack
 `~/.memctl/<pack-name>/`.
 
 Built-in starter pack included; `memctl init` writes the scaffold above with
-your project name pre-filled.
+your project name pre-filled, and `--template=node` / `--template=web` write
+purpose-built packs.
 
 ## Support the project
 

@@ -32,6 +32,49 @@ and how to behave. Keep it terse and truthful.
 2. Read before you edit.
 `;
 
+const TEMPLATES = {
+  node: `# Memory pack — Node.js service
+## Project
+- Name: ${basename(process.cwd())}
+- One line:
+- Node: 20+
+
+## Commands
+- Install: npm.cmd install
+- Test: npm.cmd test
+- Lint: npm.cmd run lint
+
+## Architecture
+- Entry: src/index.js, lib/ for reusable code
+- Conventions: ESM only, no callbacks, errors throw
+
+## Rules (hard)
+1. Never touch secrets.
+2. ESM imports only.
+`,
+  web: `# Memory pack — Web project
+## Project
+- Name: ${basename(process.cwd())}
+- One line:
+- Stack:
+
+## Commands
+- Dev:
+- Build:
+- Test:
+
+## Architecture
+- Entry:
+- Styling:
+- Data flow:
+
+## Rules (hard)
+1. Never touch secrets.
+2. Read before you edit.
+3. A11y basics always.
+`,
+};
+
 function log(...a) { console.log(...a); }
 
 function storePath(name) { return join(STORE, name); }
@@ -83,7 +126,7 @@ function copyOut(name, dstDir) {
 const USAGE = `memctl — version, share, restore AI-agent memory files
 
 Usage:
-  memctl init [dir]             scaffold a CLAUDE.md/AGENTS.md starter
+  memctl init [dir] [--template=node|web]  scaffold a memory pack starter
   memctl save [name] [dir]      copy a project's memory files into the store
   memctl use <name> [dir]       restore a stored pack into a project
   memctl ls                     list stored packs
@@ -102,11 +145,16 @@ async function main() {
 
   switch (cmd) {
     case "init": {
-      const dir = resolve(a || ".");
+      const [t1, t2, t3] = [a, b, c];
+      const tmplArg = [t1, t2, t3].find((x) => x && x.startsWith("--template="));
+      const name = tmplArg ? tmplArg.split("=")[1] : "";
+      if (tmplArg && !TEMPLATES[name]) { console.error("unknown template:", name, "(node, web)"); process.exitCode = 1; break; }
+      const dir = resolve([t1, t2, t3].find((x) => x && !x.startsWith("--template=")) || ".");
       mkdirSync(dir, { recursive: true });
       const out = join(dir, "CLAUDE.md");
+      const content = tmplArg ? TEMPLATES[name] : TEMPLATE;
       if (existsSync(out)) log("exists:", out);
-      else { writeFileSync(out, TEMPLATE); log("wrote", out); }
+      else { writeFileSync(out, content); log("wrote", out); }
       break;
     }
 

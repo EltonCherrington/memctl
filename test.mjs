@@ -43,3 +43,14 @@ test("help exits clean", () => {
   const r = run(["-h"]);
   assert.match(r, /Usage:/);
 });
+
+test("init accepts a known template, rejects unknown", () => {
+  const env = { ...process.env, MEMCTL_HOME: mkdtempSync(join(tmpdir(), "memctl-")) };
+  const nodedir = mkdtempSync(join(tmpdir(), "node-"));
+  run(["init", "--template=node", nodedir], env);
+  assert.match(readFileSync(join(nodedir, "CLAUDE.md"), "utf8"), /Node\.js service/);
+  const webdir = mkdtempSync(join(tmpdir(), "web-"));
+  run(["init", "--template=web", webdir], env);
+  assert.match(readFileSync(join(webdir, "CLAUDE.md"), "utf8"), /Web project/);
+  assert.throws(() => run(["init", "--template=bogus", mkdtempSync(join(tmpdir(), "x-"))], env), (e) => /unknown template/.test(e.stderr || ""));
+});
