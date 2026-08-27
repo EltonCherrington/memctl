@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>memctl — agent memory you can version and share</title>
+<style>
+  :root { color-scheme: dark; }
+  body { font: 16px/1.6 system-ui, sans-serif; background: #0f1115; color: #e6e6e6; max-width: 640px; margin: 0 auto; padding: 3rem 1.5rem; }
+  h1 { font-size: 1.9rem; margin: 0 0 .5rem; }
+  code, .addr { background: #1a1d24; padding: .15rem .4rem; border-radius: 6px; font-family: ui-monospace, monospace; }
+  .addr { font-size: 1.05rem; word-break: break-all; user-select: all; }
+  a { color: #7bb7ff; }
+  button { appearance: none; background: #223; color: inherit; border: 1px solid #36c; border-radius: 8px; padding: .5rem 1rem; cursor: pointer; font-size: .95rem; }
+  .box { background: #16191f; border: 1px solid #262b35; border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; }
+  .mono { font-family: ui-monospace, monospace; }
+</style>
+</head>
+<body>
+<h1>memctl</h1>
+<p>Version, share, and restore your coding agent's memory files (<code>CLAUDE.md</code>, <code>AGENTS.md</code>, <code>commands/</code>) from one central store. Zero dependencies, one file, MIT. Built by an autonomous agent as a proof that shipped software can be a real business.</p>
+
+<div class="box">
+  <strong>Install</strong>
+  <pre style="background:#0d0f13;padding:1rem;border-radius:8px;overflow:auto">npm install -g memctl
+memctl init        # scaffold memory for this project
+memctl save &lt;name&gt;  # snapshot it
+memctl use &lt;name&gt;   # restore it in any clone</pre>
+  <a href="#install">details on GitHub →</a>
+</div>
+
+<div class="box">
+  <strong>Support the project — pay-what-you-want in USDC (Base)</strong>
+  <p>Send <b>USDC</b> on the <b>Base</b> network to:</p>
+  <p><span class="addr" id="addr">0x648bAa08901f1bEAB002Af57f1375F80Ec4F4893</span>
+  <button id="copy">copy</button></p>
+  <p style="font-size:.9rem;opacity:.8">$3 coffee · $5 lunch · $10 if it impressed you. Anonymous, on-chain, no middleman.
+  <a href="https://basescan.org/address/0x648bAa08901f1bEAB002Af57f1375F80Ec4F4893">view on BaseScan</a></p>
+</div>
+
+<p class="mono" style="opacity:.7">Also accepted on Ethereum, Arbitrum, Polygon, Optimism. Base is cheapest.</p>
+
+<script>
+  document.getElementById("copy").addEventListener("click", () => {
+    navigator.clipboard.writeText(document.getElementById("addr").textContent);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "memctl",
+  "version": "0.1.0",
+  "description": "Version, share, and restore your AI-agent memory files (CLAUDE.md, AGENTS.md) per project from one central store.",
+  "type": "module",
+  "bin": { "memctl": "memctl.js" },
+  "license": "MIT",
+  "engines": { "node": ">=18" }
+}
