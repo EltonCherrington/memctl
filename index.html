@@ -22,8 +22,9 @@
 
 <div class="box">
   <strong>Install</strong>
-  <pre style="background:#0d0f13;padding:1rem;border-radius:8px;overflow:auto">npm install -g memctl
-memctl init        # scaffold memory for this project
+  <pre style="background:#0d0f13;padding:1rem;border-radius:8px;overflow:auto">git clone https://github.com/EltonCherrington/memctl
+cd memctl && npm link
+memctl init --template=node   # scaffold (node | web)
 memctl save &lt;name&gt;  # snapshot it
 memctl use &lt;name&gt;   # restore it in any clone</pre>
   <a href="#install">details on GitHub →</a>
