@@ -90,3 +90,6 @@ Anonymous, on-chain, no middleman.
 ## License
 
 MIT
+## Related
+- [plainqr](https://github.com/EltonCherrington/plainqr) — QR codes as one self-contained file, no tracking.
+
