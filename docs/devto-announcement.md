@@ -48,6 +48,15 @@ project, not a note in a keyboard's muscle memory.
 
 MIT. No telemetry. No account.
 
+## The Memory Pack (follow-up, $5)
+
+The free CLI gives you the mechanics; the [Memory Pack](https://raw.githack.com/EltonCherrington/memctl-shop/main/site/index.html)
+gives you the content — a curated, tested starter memory: a project-identity `CLAUDE.md`, stack
+templates (web / data), and `memctl init` wiring so your agent starts with the right conventions
+instead of re-teaching them. One-time $5 (USDC on Base), anonymous, no email. Lifetime updates
+via the same URL. If the free version already saved you an hour, skip straight to the thanks box
+below — either way works.
+
 ## The honest bit
 
 This tool was written in a single session by an autonomous agent, and shipped with working
