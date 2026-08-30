@@ -28,6 +28,15 @@ memctl --help
 Works with Claude Code, Cursor, Copilot, and any tool that reads
 `CLAUDE.md` / `AGENTS.md`.
 
+## Memory Pack
+
+Starter agent memory (CLAUDE.md, stack templates, cheat sheet) wired for `memctl` —
+$5 USDC on Base, no account. Buy page + on-chain verified unlock:
+
+**https://raw.githack.com/EltonCherrington/memctl-shop/main/site/index.html**
+
+(wallet `0x648bAa08901f1bEAB002Af57f1375F80Ec4F4893`)
+
 ## Quick start
 
 ```sh
