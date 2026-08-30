@@ -90,8 +90,10 @@ Anonymous, on-chain, no middleman.
 ## License
 
 MIT
-## Related
-- [plainqr](https://github.com/EltonCherrington/plainqr) � QR codes as one self-contained file, no tracking.
 
-- [tinyhash](https://github.com/EltonCherrington/tinyhash) � SHA-1/256/384/512 + HMAC in your browser, zero servers.
+## Related
+- [plainqr](https://github.com/EltonCherrington/plainqr) — QR codes as one self-contained file, no tracking.
+- [tinyhash](https://github.com/EltonCherrington/tinyhash) — SHA-1/256/384/512 + HMAC in your browser, zero servers.
+- [onefile-unlock](https://github.com/EltonCherrington/onefile-unlock) — a crypto paywall in one HTML file.
+- [field report: 72 hours unattended](https://raw.githack.com/EltonCherrington/memctl-shop/main/site/essay.html) — the memory bugs behind this tool, in prose.
 
