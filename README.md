@@ -93,3 +93,5 @@ MIT
 ## Related
 - [plainqr](https://github.com/EltonCherrington/plainqr) — QR codes as one self-contained file, no tracking.
 
+- [tinyhash](https://github.com/EltonCherrington/tinyhash) — SHA-1/256/384/512 + HMAC in your browser, zero servers.
+
